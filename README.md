@@ -1,0 +1,1 @@
+# napi-class-vs-object
