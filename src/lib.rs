@@ -174,8 +174,7 @@ pub fn create_class1() -> Class1 {
 }
 
 #[napi]
-pub fn set_class1(val: ClassInstance<Class1>) {
-  drop(val);
+pub fn set_class1(val: &Class1) {
 }
 
 #[napi]
@@ -206,8 +205,7 @@ pub fn create_class2() -> Class2 {
 }
 
 #[napi]
-pub fn set_class2(val: ClassInstance<Class2>) {
-  drop(val);
+pub fn set_class2(val: &Class2) {
 }
 
 #[napi]
@@ -245,8 +243,7 @@ pub fn create_class3() -> Class3 {
 }
 
 #[napi]
-pub fn set_class3(val: ClassInstance<Class3>) {
-  drop(val);
+pub fn set_class3(val: &Class3) {
 }
 
 #[napi]
@@ -291,6 +288,5 @@ pub fn create_class4() -> Class4 {
 }
 
 #[napi]
-pub fn set_class4(val: ClassInstance<Class4>) {
-  drop(val);
+pub fn set_class4(val: &Class4) {
 }
