@@ -31,5 +31,8 @@
     "universal": "napi universal",
     "version": "napi version"
   },
-  "packageManager": "yarn@4.4.0"
+  "packageManager": "yarn@4.4.0",
+  "dependencies": {
+    "percentile": "^1.6.0"
+  }
 }

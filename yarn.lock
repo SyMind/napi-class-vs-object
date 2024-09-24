@@ -1019,6 +1019,7 @@ __metadata:
   dependencies:
     "@napi-rs/cli": "npm:^2.18.4"
     ava: "npm:^6.0.1"
+    percentile: "npm:^1.6.0"
   languageName: unknown
   linkType: soft
 
@@ -1128,6 +1129,13 @@ __metadata:
   version: 5.0.0
   resolution: "path-type@npm:5.0.0"
   checksum: 10c0/e8f4b15111bf483900c75609e5e74e3fcb79f2ddb73e41470028fcd3e4b5162ec65da9907be077ee5012c18801ff7fffb35f9f37a077f3f81d85a0b7d6578efd
+  languageName: node
+  linkType: hard
+
+"percentile@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "percentile@npm:1.6.0"
+  checksum: 10c0/fcd428d6b6b98cc1c11ad88902af2f9e7cd417472ab3c7c86c3a7eb878f39bb7b38f215ab9330a45d74ab832c6f0fc6f7fc4de377ce041b5241ee3ffb5686d1b
   languageName: node
   linkType: hard
 
