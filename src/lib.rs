@@ -1,5 +1,6 @@
 #![deny(clippy::all)]
 
+use napi::bindgen_prelude::ClassInstance;
 use napi_derive::*;
 
 #[napi(object)]
@@ -263,6 +264,11 @@ impl Class1 {
   pub fn f1(&self) -> &String {
     &self.f1
   }
+
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
 }
 
 #[napi]
@@ -273,7 +279,7 @@ pub fn create_class1() -> Class1 {
 }
 
 #[napi]
-pub fn set_class1(_val: &Class1) {
+pub fn set_class1(_val: ClassInstance<Class1>) {
 }
 
 #[napi]
@@ -289,9 +295,19 @@ impl Class2 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
   }
 }
 
@@ -304,7 +320,7 @@ pub fn create_class2() -> Class2 {
 }
 
 #[napi]
-pub fn set_class2(_val: &Class2) {
+pub fn set_class2(_val: ClassInstance<Class2>) {
 }
 
 #[napi]
@@ -321,14 +337,29 @@ impl Class3 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
   }
 
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
+  }
+
   #[napi(getter)]
   pub fn f3(&self) -> &String {
     &self.f3
+  }
+
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f3 = val;
   }
 }
 
@@ -342,7 +373,7 @@ pub fn create_class3() -> Class3 {
 }
 
 #[napi]
-pub fn set_class3(_val: &Class3) {
+pub fn set_class3(_val: ClassInstance<Class3>) {
 }
 
 #[napi]
@@ -360,9 +391,19 @@ impl Class4 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
   }
 
   #[napi(getter)]
@@ -370,9 +411,19 @@ impl Class4 {
     &self.f3
   }
 
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f3 = val;
+  }
+
   #[napi(getter)]
   pub fn f4(&self) -> &String {
     &self.f4
+  }
+
+  #[napi(setter)]
+  pub fn set_f4(&mut self, val: String) {
+    self.f4 = val;
   }
 }
 
@@ -387,7 +438,7 @@ pub fn create_class4() -> Class4 {
 }
 
 #[napi]
-pub fn set_class4(_val: &Class4) {
+pub fn set_class4(_val: ClassInstance<Class4>) {
 }
 
 #[napi]
@@ -406,9 +457,19 @@ impl Class5 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
   }
 
   #[napi(getter)]
@@ -416,14 +477,29 @@ impl Class5 {
     &self.f3
   }
 
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f3 = val;
+  }
+
   #[napi(getter)]
   pub fn f4(&self) -> &String {
     &self.f4
   }
 
+  #[napi(setter)]
+  pub fn set_f4(&mut self, val: String) {
+    self.f4 = val;
+  }
+
   #[napi(getter)]
   pub fn f5(&self) -> &String {
     &self.f5
+  }
+
+  #[napi(setter)]
+  pub fn set_f5(&mut self, val: String) {
+    self.f5 = val;
   }
 }
 
@@ -439,7 +515,7 @@ pub fn create_class5() -> Class5 {
 }
 
 #[napi]
-pub fn set_class5(_val: &Class5) {
+pub fn set_class5(_val: ClassInstance<Class5>) {
 }
 
 #[napi]
@@ -459,9 +535,19 @@ impl Class6 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f1 = val;
   }
 
   #[napi(getter)]
@@ -469,9 +555,19 @@ impl Class6 {
     &self.f3
   }
 
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f4(&self) -> &String {
     &self.f4
+  }
+
+  #[napi(setter)]
+  pub fn set_f4(&mut self, val: String) {
+    self.f1 = val;
   }
 
   #[napi(getter)]
@@ -479,9 +575,19 @@ impl Class6 {
     &self.f5
   }
 
+  #[napi(setter)]
+  pub fn set_f5(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f6(&self) -> &String {
     &self.f6
+  }
+
+  #[napi(setter)]
+  pub fn set_f6(&mut self, val: String) {
+    self.f1 = val;
   }
 }
 
@@ -498,7 +604,7 @@ pub fn create_class6() -> Class6 {
 }
 
 #[napi]
-pub fn set_class6(_val: &Class6) {
+pub fn set_class6(_val: ClassInstance<Class6>) {
 }
 
 #[napi]
@@ -519,9 +625,19 @@ impl Class7 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
   }
 
   #[napi(getter)]
@@ -529,9 +645,19 @@ impl Class7 {
     &self.f3
   }
 
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f3 = val;
+  }
+
   #[napi(getter)]
   pub fn f4(&self) -> &String {
     &self.f4
+  }
+
+  #[napi(setter)]
+  pub fn set_f4(&mut self, val: String) {
+    self.f4 = val;
   }
 
   #[napi(getter)]
@@ -539,14 +665,29 @@ impl Class7 {
     &self.f5
   }
 
+  #[napi(setter)]
+  pub fn set_f5(&mut self, val: String) {
+    self.f5 = val;
+  }
+
   #[napi(getter)]
   pub fn f6(&self) -> &String {
     &self.f6
   }
 
+  #[napi(setter)]
+  pub fn set_f6(&mut self, val: String) {
+    self.f6 = val;
+  }
+
   #[napi(getter)]
   pub fn f7(&self) -> &String {
     &self.f7
+  }
+
+  #[napi(setter)]
+  pub fn set_f7(&mut self, val: String) {
+    self.f7 = val;
   }
 }
 
@@ -564,7 +705,7 @@ pub fn create_class7() -> Class7 {
 }
 
 #[napi]
-pub fn set_class7(_val: &Class7) {
+pub fn set_class7(_val: ClassInstance<Class7>) {
 }
 
 #[napi]
@@ -586,9 +727,19 @@ impl Class8 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
   }
 
   #[napi(getter)]
@@ -596,9 +747,19 @@ impl Class8 {
     &self.f3
   }
 
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f3 = val;
+  }
+
   #[napi(getter)]
   pub fn f4(&self) -> &String {
     &self.f4
+  }
+
+  #[napi(setter)]
+  pub fn set_f4(&mut self, val: String) {
+    self.f4 = val;
   }
 
   #[napi(getter)]
@@ -606,9 +767,19 @@ impl Class8 {
     &self.f5
   }
 
+  #[napi(setter)]
+  pub fn set_f5(&mut self, val: String) {
+    self.f5 = val;
+  }
+
   #[napi(getter)]
   pub fn f6(&self) -> &String {
     &self.f6
+  }
+
+  #[napi(setter)]
+  pub fn set_f6(&mut self, val: String) {
+    self.f6 = val;
   }
 
   #[napi(getter)]
@@ -616,9 +787,19 @@ impl Class8 {
     &self.f7
   }
 
+  #[napi(setter)]
+  pub fn set_f7(&mut self, val: String) {
+    self.f7 = val;
+  }
+
   #[napi(getter)]
   pub fn f8(&self) -> &String {
     &self.f8
+  }
+
+  #[napi(setter)]
+  pub fn set_f8(&mut self, val: String) {
+    self.f8 = val;
   }
 }
 
@@ -637,7 +818,7 @@ pub fn create_class8() -> Class8 {
 }
 
 #[napi]
-pub fn set_class8(_val: &Class8) {
+pub fn set_class8(_val: ClassInstance<Class8>) {
 }
 
 #[napi]
@@ -660,9 +841,19 @@ impl Class9 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
   }
 
   #[napi(getter)]
@@ -670,9 +861,19 @@ impl Class9 {
     &self.f3
   }
 
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f3 = val;
+  }
+
   #[napi(getter)]
   pub fn f4(&self) -> &String {
     &self.f4
+  }
+
+  #[napi(setter)]
+  pub fn set_f4(&mut self, val: String) {
+    self.f4 = val;
   }
 
   #[napi(getter)]
@@ -680,9 +881,19 @@ impl Class9 {
     &self.f5
   }
 
+  #[napi(setter)]
+  pub fn set_f5(&mut self, val: String) {
+    self.f5 = val;
+  }
+
   #[napi(getter)]
   pub fn f6(&self) -> &String {
     &self.f6
+  }
+
+  #[napi(setter)]
+  pub fn set_f6(&mut self, val: String) {
+    self.f6 = val;
   }
 
   #[napi(getter)]
@@ -690,14 +901,29 @@ impl Class9 {
     &self.f7
   }
 
+  #[napi(setter)]
+  pub fn set_f7(&mut self, val: String) {
+    self.f7 = val;
+  }
+
   #[napi(getter)]
   pub fn f8(&self) -> &String {
     &self.f8
   }
 
+  #[napi(setter)]
+  pub fn set_f8(&mut self, val: String) {
+    self.f8 = val;
+  }
+
   #[napi(getter)]
   pub fn f9(&self) -> &String {
     &self.f9
+  }
+
+  #[napi(setter)]
+  pub fn set_f9(&mut self, val: String) {
+    self.f9 = val;
   }
 }
 
@@ -717,7 +943,7 @@ pub fn create_class9() -> Class9 {
 }
 
 #[napi]
-pub fn set_class9(_val: &Class9) {
+pub fn set_class9(_val: ClassInstance<Class9>) {
 }
 
 
@@ -742,9 +968,19 @@ impl Class10 {
     &self.f1
   }
 
+  #[napi(setter)]
+  pub fn set_f1(&mut self, val: String) {
+    self.f1 = val;
+  }
+
   #[napi(getter)]
   pub fn f2(&self) -> &String {
     &self.f2
+  }
+
+  #[napi(setter)]
+  pub fn set_f2(&mut self, val: String) {
+    self.f2 = val;
   }
 
   #[napi(getter)]
@@ -752,9 +988,19 @@ impl Class10 {
     &self.f3
   }
 
+  #[napi(setter)]
+  pub fn set_f3(&mut self, val: String) {
+    self.f3 = val;
+  }
+
   #[napi(getter)]
   pub fn f4(&self) -> &String {
     &self.f4
+  }
+
+  #[napi(setter)]
+  pub fn set_f4(&mut self, val: String) {
+    self.f4 = val;
   }
 
   #[napi(getter)]
@@ -762,9 +1008,19 @@ impl Class10 {
     &self.f5
   }
 
+  #[napi(setter)]
+  pub fn set_f5(&mut self, val: String) {
+    self.f5 = val;
+  }
+
   #[napi(getter)]
   pub fn f6(&self) -> &String {
     &self.f6
+  }
+
+  #[napi(setter)]
+  pub fn set_f6(&mut self, val: String) {
+    self.f6 = val;
   }
 
   #[napi(getter)]
@@ -772,9 +1028,19 @@ impl Class10 {
     &self.f7
   }
 
+  #[napi(setter)]
+  pub fn set_f7(&mut self, val: String) {
+    self.f7 = val;
+  }
+
   #[napi(getter)]
   pub fn f8(&self) -> &String {
     &self.f8
+  }
+
+  #[napi(setter)]
+  pub fn set_f8(&mut self, val: String) {
+    self.f8 = val;
   }
 
   #[napi(getter)]
@@ -782,9 +1048,19 @@ impl Class10 {
     &self.f9
   }
 
+  #[napi(setter)]
+  pub fn set_f9(&mut self, val: String) {
+    self.f9 = val;
+  }
+
   #[napi(getter)]
   pub fn f10(&self) -> &String {
     &self.f10
+  }
+
+  #[napi(setter)]
+  pub fn set_f10(&mut self, val: String) {
+    self.f10 = val;
   }
 }
 
@@ -805,6 +1081,6 @@ pub fn create_class10() -> Class10 {
 }
 
 #[napi]
-pub fn set_class10(_val: &Class10) {
+pub fn set_class10(_val: ClassInstance<Class10>) {
 }
 

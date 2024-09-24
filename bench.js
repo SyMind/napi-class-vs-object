@@ -24,10 +24,22 @@ const {
     setObject2,
     setObject3,
     setObject4,
+    setObject5,
+    setObject6,
+    setObject7,
+    setObject8,
+    setObject9,
+    setObject10,
     setClass1,
     setClass2,
     setClass3,
     setClass4,
+    setClass5,
+    setClass6,
+    setClass7,
+    setClass8,
+    setClass9,
+    setClass10,
 } = require(".");
 
 console.log("object with 1 field", measure(() => {
@@ -183,6 +195,203 @@ console.log("read all class with 10 field", measure(() => {
     o.f8;
     o.f9;
     o.f10;
+}));
+
+
+
+
+console.log("modify all object with 1 field", measure(() => {
+    const o = createObject1();
+    o.f1 = "changed";
+    setObject1(o);
+}));
+console.log("modify all object with 2 field", measure(() => {
+    const o = createObject2();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    setObject2(o);
+}));
+console.log("modify all object with 3 field", measure(() => {
+    const o = createObject3();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    setObject3(o);
+}));
+console.log("modify all object with 4 field", measure(() => {
+    const o = createObject4();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    setObject4(o);
+}));
+console.log("modify all object with 5 field", measure(() => {
+    const o = createObject5();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    setObject5(o);
+}));
+console.log("modify all object with 6 field", measure(() => {
+    const o = createObject6();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    setObject6(o);
+}));
+console.log("modify all object with 7 field", measure(() => {
+    const o = createObject7();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    setObject7(o);
+}));
+console.log("modify all object with 8 field", measure(() => {
+    const o = createObject8();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    o.f8 = "changed";
+    setObject8(o);
+}));
+console.log("modify all object with 9 field", measure(() => {
+    const o = createObject9();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    o.f8 = "changed";
+    o.f9 = "changed";
+    setObject9(o);
+}));
+console.log("modify all object with 10 field", measure(() => {
+    const o = createObject10();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    o.f8 = "changed";
+    o.f9 = "changed";
+    o.f10 = "changed";
+    setObject10(o);
+}));
+
+
+
+console.log("modify all class with 1 field", measure(() => {
+    const o = createClass1();
+    o.f1 = "changed";
+    setClass1(o);
+}));
+console.log("modify all class with 2 field", measure(() => {
+    const o = createClass2();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    setClass2(o);
+}));
+console.log("modify all class with 3 field", measure(() => {
+    const o = createClass3();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    setClass3(o);
+}));
+console.log("modify all class with 4 field", measure(() => {
+    const o = createClass4();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    setClass4(o);
+}));
+console.log("modify all class with 5 field", measure(() => {
+    const o = createClass5();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    setClass5(o);
+}));
+console.log("modify all class with 6 field", measure(() => {
+    const o = createClass6();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    setClass6(o);
+}));
+console.log("modify all class with 7 field", measure(() => {
+    const o = createClass7();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    setClass7(o);
+}));
+console.log("modify all class with 8 field", measure(() => {
+    const o = createClass8();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    o.f8 = "changed";
+    setClass8(o);
+}));
+console.log("modify all class with 9 field", measure(() => {
+    const o = createClass9();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    o.f8 = "changed";
+    o.f9 = "changed";
+    setClass9(o);
+}));
+console.log("modify all class with 10 field", measure(() => {
+    const o = createClass10();
+    o.f1 = "changed";
+    o.f2 = "changed";
+    o.f3 = "changed";
+    o.f4 = "changed";
+    o.f5 = "changed";
+    o.f6 = "changed";
+    o.f7 = "changed";
+    o.f8 = "changed";
+    o.f9 = "changed";
+    o.f10 = "changed";
+    setClass10(o);
 }));
 
 function measure(fn) {

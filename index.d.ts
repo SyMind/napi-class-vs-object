@@ -120,76 +120,131 @@ export declare function createClass10(): Class10
 export declare function setClass10(val: Class10): void
 export declare class Class1 {
   get f1(): string
+  set f1(val: string)
 }
 export declare class Class2 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
 }
 export declare class Class3 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
 }
 export declare class Class4 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
   get f4(): string
+  set f4(val: string)
 }
 export declare class Class5 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
   get f4(): string
+  set f4(val: string)
   get f5(): string
+  set f5(val: string)
 }
 export declare class Class6 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
   get f4(): string
+  set f4(val: string)
   get f5(): string
+  set f5(val: string)
   get f6(): string
+  set f6(val: string)
 }
 export declare class Class7 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
   get f4(): string
+  set f4(val: string)
   get f5(): string
+  set f5(val: string)
   get f6(): string
+  set f6(val: string)
   get f7(): string
+  set f7(val: string)
 }
 export declare class Class8 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
   get f4(): string
+  set f4(val: string)
   get f5(): string
+  set f5(val: string)
   get f6(): string
+  set f6(val: string)
   get f7(): string
+  set f7(val: string)
   get f8(): string
+  set f8(val: string)
 }
 export declare class Class9 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
   get f4(): string
+  set f4(val: string)
   get f5(): string
+  set f5(val: string)
   get f6(): string
+  set f6(val: string)
   get f7(): string
+  set f7(val: string)
   get f8(): string
+  set f8(val: string)
   get f9(): string
+  set f9(val: string)
 }
 export declare class Class10 {
   get f1(): string
+  set f1(val: string)
   get f2(): string
+  set f2(val: string)
   get f3(): string
+  set f3(val: string)
   get f4(): string
+  set f4(val: string)
   get f5(): string
+  set f5(val: string)
   get f6(): string
+  set f6(val: string)
   get f7(): string
+  set f7(val: string)
   get f8(): string
+  set f8(val: string)
   get f9(): string
+  set f9(val: string)
   get f10(): string
+  set f10(val: string)
 }
