@@ -1,12 +1,25 @@
+const fs = require('fs');
 const {
     createObject1,
     createObject2,
     createObject3,
     createObject4,
+    createObject5,
+    createObject6,
+    createObject7,
+    createObject8,
+    createObject9,
+    createObject10,
     createClass1,
     createClass2,
     createClass3,
     createClass4,
+    createClass5,
+    createClass6,
+    createClass7,
+    createClass8,
+    createClass9,
+    createClass10,
     setObject1,
     setObject2,
     setObject3,
@@ -20,21 +33,18 @@ const {
 console.time("object with 1 field");
 for (let i = 0; i < 10000; i++) {
     let o = createObject1();
-    o.f1;
 }
 console.timeEnd("object with 1 field");
 
 console.time("object with 2 field");
 for (let i = 0; i < 10000; i++) {
     let o = createObject2();
-    o.f1;
 }
 console.timeEnd("object with 2 field");
 
 console.time("object with 3 field");
 for (let i = 0; i < 10000; i++) {
     let o = createObject3();
-    o.f1;
 }
 console.timeEnd("object with 3 field");
 
@@ -45,35 +55,108 @@ for (let i = 0; i < 10000; i++) {
 }
 console.timeEnd("object with 4 field");
 
+console.time("object with 5 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createObject5();
+}
+console.timeEnd("object with 5 field");
+
+console.time("object with 6 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createObject6();
+}
+console.timeEnd("object with 6 field");
+
+console.time("object with 7 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createObject7();
+}
+console.timeEnd("object with 7 field");
+
+console.time("object with 8 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createObject8();
+}
+console.timeEnd("object with 8 field");
+
+console.time("object with 9 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createObject9();
+}
+console.timeEnd("object with 9 field");
+
+console.time("object with 10 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createObject10();
+}
+console.timeEnd("object with 10 field");
+
+
+
+
+
 
 
 console.time("class with 1 field");
 for (let i = 0; i < 10000; i++) {
     let o = createClass1();
-    o.f1;
 }
 console.timeEnd("class with 1 field");
 
 console.time("class with 2 field");
 for (let i = 0; i < 10000; i++) {
     let o = createClass2();
-    o.f1;
 }
 console.timeEnd("class with 2 field");
 
 console.time("class with 3 field");
 for (let i = 0; i < 10000; i++) {
     let o = createClass3();
-    o.f1;
 }
 console.timeEnd("class with 3 field");
 
 console.time("class with 4 field");
 for (let i = 0; i < 10000; i++) {
     let o = createClass4();
-    o.f1;
 }
 console.timeEnd("class with 4 field");
+
+console.time("class with 5 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createClass5();
+}
+console.timeEnd("class with 5 field");
+
+console.time("class with 6 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createClass6();
+}
+console.timeEnd("class with 6 field");
+
+console.time("class with 7 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createClass7();
+}
+console.timeEnd("class with 7 field");
+
+console.time("class with 8 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createClass8();
+}
+console.timeEnd("class with 8 field");
+
+console.time("class with 9 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createClass9();
+}
+console.timeEnd("class with 9 field");
+
+console.time("class with 10 field");
+for (let i = 0; i < 10000; i++) {
+    let o = createClass10();
+}
+console.timeEnd("class with 10 field");
+
 
 
 

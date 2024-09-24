@@ -310,7 +310,7 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { createObject1, setObject1, createObject2, setObject2, createObject3, setObject3, createObject4, setObject4, Class1, createClass1, setClass1, Class2, createClass2, setClass2, Class3, createClass3, setClass3, Class4, createClass4, setClass4 } = nativeBinding
+const { createObject1, setObject1, createObject2, setObject2, createObject3, setObject3, createObject4, setObject4, createObject5, setObject5, createObject6, setObject6, createObject7, setObject7, createObject8, setObject8, createObject9, setObject9, createObject10, setObject10, Class1, createClass1, setClass1, Class2, createClass2, setClass2, Class3, createClass3, setClass3, Class4, createClass4, setClass4, Class5, createClass5, setClass5, Class6, createClass6, setClass6, Class7, createClass7, setClass7, Class8, createClass8, setClass8, Class9, createClass9, setClass9, Class10, createClass10, setClass10 } = nativeBinding
 
 module.exports.createObject1 = createObject1
 module.exports.setObject1 = setObject1
@@ -320,6 +320,18 @@ module.exports.createObject3 = createObject3
 module.exports.setObject3 = setObject3
 module.exports.createObject4 = createObject4
 module.exports.setObject4 = setObject4
+module.exports.createObject5 = createObject5
+module.exports.setObject5 = setObject5
+module.exports.createObject6 = createObject6
+module.exports.setObject6 = setObject6
+module.exports.createObject7 = createObject7
+module.exports.setObject7 = setObject7
+module.exports.createObject8 = createObject8
+module.exports.setObject8 = setObject8
+module.exports.createObject9 = createObject9
+module.exports.setObject9 = setObject9
+module.exports.createObject10 = createObject10
+module.exports.setObject10 = setObject10
 module.exports.Class1 = Class1
 module.exports.createClass1 = createClass1
 module.exports.setClass1 = setClass1
@@ -332,3 +344,21 @@ module.exports.setClass3 = setClass3
 module.exports.Class4 = Class4
 module.exports.createClass4 = createClass4
 module.exports.setClass4 = setClass4
+module.exports.Class5 = Class5
+module.exports.createClass5 = createClass5
+module.exports.setClass5 = setClass5
+module.exports.Class6 = Class6
+module.exports.createClass6 = createClass6
+module.exports.setClass6 = setClass6
+module.exports.Class7 = Class7
+module.exports.createClass7 = createClass7
+module.exports.setClass7 = setClass7
+module.exports.Class8 = Class8
+module.exports.createClass8 = createClass8
+module.exports.setClass8 = setClass8
+module.exports.Class9 = Class9
+module.exports.createClass9 = createClass9
+module.exports.setClass9 = setClass9
+module.exports.Class10 = Class10
+module.exports.createClass10 = createClass10
+module.exports.setClass10 = setClass10
