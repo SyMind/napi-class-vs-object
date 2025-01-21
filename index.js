@@ -310,7 +310,7 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { createObject1, setObject1, createObject2, setObject2, createObject3, setObject3, createObject4, setObject4, createObject5, setObject5, createObject6, setObject6, createObject7, setObject7, createObject8, setObject8, createObject9, setObject9, createObject10, setObject10, Class1, createClass1, setClass1, Class2, createClass2, setClass2, Class3, createClass3, setClass3, Class4, createClass4, setClass4, Class5, createClass5, setClass5, Class6, createClass6, setClass6, Class7, createClass7, setClass7, Class8, createClass8, setClass8, Class9, createClass9, setClass9, Class10, createClass10, setClass10 } = nativeBinding
+const { createObject1, setObject1, createObject2, setObject2, createObject3, setObject3, createObject4, setObject4, createObject5, setObject5, createObject6, setObject6, createObject7, setObject7, createObject8, setObject8, createObject9, setObject9, createObject10, setObject10, Class1, createClass1, setClass1, Class2, createClass2, setClass2, Class3, createClass3, setClass3, Class4, createClass4, setClass4, Class5, createClass5, setClass5, Class6, createClass6, setClass6, Class7, createClass7, setClass7, Class8, createClass8, setClass8, Class9, createClass9, setClass9, Class10, createClass10, setClass10, withPromiseResult, withCallbackResult } = nativeBinding
 
 module.exports.createObject1 = createObject1
 module.exports.setObject1 = setObject1
@@ -362,3 +362,5 @@ module.exports.setClass9 = setClass9
 module.exports.Class10 = Class10
 module.exports.createClass10 = createClass10
 module.exports.setClass10 = setClass10
+module.exports.withPromiseResult = withPromiseResult
+module.exports.withCallbackResult = withCallbackResult

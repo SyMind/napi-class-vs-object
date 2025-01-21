@@ -1,7 +1,10 @@
 #![deny(clippy::all)]
 
-use napi::bindgen_prelude::ClassInstance;
+use std::{cell::Cell, ffi::CString, ptr, sync::Arc};
+
+use napi::{bindgen_prelude::*, threadsafe_function::{ErrorStrategy::T, ThreadsafeFunction, ThreadsafeFunctionCallMode}, tokio::{self, sync::oneshot::{channel, Receiver, Sender}}, JsObject};
 use napi_derive::*;
+use sys::napi_value;
 
 #[napi(object)]
 pub struct Object1 {
@@ -1084,3 +1087,118 @@ pub fn create_class10() -> Class10 {
 pub fn set_class10(_val: ClassInstance<Class10>) {
 }
 
+#[napi]
+pub async fn with_promise_result(p: Promise<u32>) -> Result<()> {
+  let value = p.await?;
+  Ok(())
+}
+
+#[inline(never)]
+fn throw_error(env: sys::napi_env, err: Error, default_msg: &str) -> sys::napi_value {
+  let code = if err.status.as_ref().is_empty() {
+    CString::new(Status::GenericFailure.as_ref())
+  } else {
+    CString::new(err.status.as_ref())
+  }
+  .map(|s| s.as_ptr())
+  .unwrap_or(ptr::null_mut());
+  let msg = if err.reason.is_empty() {
+    CString::new(default_msg)
+  } else {
+    CString::new(err.reason)
+  }
+  .map(|s| s.as_ptr())
+  .unwrap_or(ptr::null_mut());
+  unsafe { sys::napi_throw_error(env, code, msg) };
+  ptr::null_mut()
+}
+
+unsafe extern "C" fn raw_done_callback<Value>(
+  env: sys::napi_env,
+  cbinfo: sys::napi_callback_info,
+) -> sys::napi_value
+where
+  Value: FromNapiValue,
+{
+  handle_done_callback::<Value>(env, cbinfo)
+    .unwrap_or_else(|err| throw_error(env, err, "Error in done"))
+}
+
+#[inline(always)]
+unsafe extern "C" fn handle_done_callback<Value>(
+  env: sys::napi_env,
+  cbinfo: sys::napi_callback_info,
+) -> Result<sys::napi_value>
+where
+  Value: FromNapiValue,
+{
+  let mut callback_values = [ptr::null_mut(), ptr::null_mut()];
+  let mut rust_cb = ptr::null_mut();
+  check_status!(
+    unsafe {
+      sys::napi_get_cb_info(
+        env,
+        cbinfo,
+        &mut 2,
+        callback_values.as_mut_ptr(),
+        ptr::null_mut(),
+        &mut rust_cb,
+      )
+    },
+    "Get callback info from finally callback failed"
+  )?;
+
+  let tx: Box<Sender<Result<Value>>> = unsafe { Box::from_raw(rust_cb.cast()) };
+
+  let error: Option<JsObject> = unsafe { FromNapiValue::from_napi_value(env, callback_values[0]) }?;
+  if let Some(error) = error {
+    let message = error.get_named_property::<String>("message")?;
+    tx.send(Err(napi::Error::new(
+      napi::Status::GenericFailure,
+      message
+    )));
+    return Ok(ptr::null_mut());
+  }
+  let value: Value = unsafe { FromNapiValue::from_napi_value(env, callback_values[1]) }?;
+  tx.send(Ok(value));
+
+  Ok(ptr::null_mut())
+}
+
+fn call_with_done<Value>(env: Env, execute: Function<'static, napi_value, ()>) -> Result<Receiver<Result<Value>>>
+  where
+    Value: FromNapiValue + std::fmt::Debug
+{
+  let (tx, rx) = channel::<Result<Value>>();
+  let tx_box = Box::new(Cell::new(tx));
+  let rust_tx = Box::into_raw(tx_box);
+
+  let mut done_callback = ptr::null_mut();
+  const DONE: &[u8; 5] = b"done\0";
+  check_status!(
+    unsafe {
+      sys::napi_create_function(
+        env.raw(),
+        DONE.as_ptr().cast(),
+        4,
+        Some(raw_done_callback::<Value>),
+        rust_tx.cast(),
+        &mut done_callback,
+      )
+    },
+    "Create then function for PromiseRaw failed"
+  )?;
+  execute.call(done_callback)?;
+
+  Ok(rx)
+}
+
+#[napi]
+pub fn with_callback_result(env: Env, execute: Function<'static, napi_value, ()>, callback: ThreadsafeFunction<()>) -> Result<()> {
+  let rx = call_with_done::<u32>(env, execute)?;
+  napi::bindgen_prelude::spawn(async move {
+    let result = rx.await;
+    callback.call(Ok(()), ThreadsafeFunctionCallMode::NonBlocking);
+  });
+  Ok(())
+}

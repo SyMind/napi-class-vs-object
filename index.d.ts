@@ -118,6 +118,8 @@ export declare function createClass9(): Class9
 export declare function setClass9(val: Class9): void
 export declare function createClass10(): Class10
 export declare function setClass10(val: Class10): void
+export declare function withPromiseResult(p: Promise<number>): Promise<void>
+export declare function withCallbackResult(execute: (napi_value) => , callback: (err: Error | null, ) => any): void
 export declare class Class1 {
   get f1(): string
   set f1(val: string)

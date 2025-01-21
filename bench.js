@@ -40,6 +40,8 @@ const {
     setClass8,
     setClass9,
     setClass10,
+    withPromiseResult,
+    withCallbackResult
 } = require(".");
 
 console.log("object with 1 field", measure(() => {
@@ -394,11 +396,41 @@ console.log("modify all class with 10 field", measure(() => {
     setClass10(o);
 }));
 
+(async function () {
+    console.log("withPromiseResult", await measureAsync(async () => {
+        await withPromiseResult(Promise.resolve(100));
+    }));
+
+    console.log("withCallbackResult", await measureAsync(async () => {
+        await new Promise(resolve => {
+            withCallbackResult(
+                done => {
+                    done(null, 100);
+                },
+                resolve
+            )
+        });
+    }));
+})();
+
 function measure(fn) {
     const times = [];
     for (let i = 0; i < 10000; i++) {
         const start = performance.now();
         fn();
+        const end = performance.now();
+        times.push(end - start);
+    }
+    // 单位 ns
+    const ms = percentile(90, times);
+    return Math.round(ms * 1000 * 1000);
+}
+
+async function measureAsync(fn) {
+    const times = [];
+    for (let i = 0; i < 10000; i++) {
+        const start = performance.now();
+        await fn();
         const end = performance.now();
         times.push(end - start);
     }
