@@ -398,14 +398,20 @@ console.log("modify all class with 10 field", measure(() => {
 
 (async function () {
     console.log("withPromiseResult", await measureAsync(async () => {
-        await withPromiseResult(Promise.resolve(100));
+        await withPromiseResult(new Promise(resolve => {
+            setTimeout(() => {
+                resolve(100);
+            }, 100);
+        }));
     }));
 
     console.log("withCallbackResult", await measureAsync(async () => {
         await new Promise(resolve => {
             withCallbackResult(
                 done => {
-                    done(null, 100);
+                    setTimeout(() => { 
+                        done(null, 100);
+                    }, 100);
                 },
                 resolve
             )
@@ -428,12 +434,14 @@ function measure(fn) {
 
 async function measureAsync(fn) {
     const times = [];
+    const promises = [];
     for (let i = 0; i < 10000; i++) {
         const start = performance.now();
-        await fn();
+        promises.push(fn());
         const end = performance.now();
         times.push(end - start);
     }
+    await Promise.all(promises);
     // 单位 ns
     const ms = percentile(90, times);
     return Math.round(ms * 1000 * 1000);
