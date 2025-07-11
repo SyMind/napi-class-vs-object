@@ -120,6 +120,19 @@ export declare function createClass10(): Class10
 export declare function setClass10(val: Class10): void
 export declare function withPromiseResult(p: Promise<number>): Promise<void>
 export declare function withCallbackResult(execute: (napi_value) => , callback: (err: Error | null, ) => any): void
+export interface SourceMap {
+  file?: string
+  sources?: Array<string | undefined | null>
+  sourceRoot?: string
+  sourcesContent?: Array<string | undefined | null>
+  names?: Array<string | undefined | null>
+  mappings: string
+  debugId?: string
+  ignoreList?: Array<number>
+}
+export declare function sendSourceMapByJson(json: string): void
+export declare function sendSourceMapByBuffer(buffer: Buffer): void
+export declare function sendSourceMapByObject(object: SourceMap): void
 export declare class Class1 {
   get f1(): string
   set f1(val: string)

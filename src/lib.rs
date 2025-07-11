@@ -1,10 +1,11 @@
 #![deny(clippy::all)]
 
-use std::{cell::Cell, ffi::CString, ptr, sync::Arc};
+use std::{cell::Cell, ffi::CString, io::Read, ptr, sync::Arc};
 
 use napi::{bindgen_prelude::*, threadsafe_function::{ErrorStrategy::T, ThreadsafeFunction, ThreadsafeFunctionCallMode}, tokio::{self, sync::oneshot::{channel, Receiver, Sender}}, JsObject};
 use napi_derive::*;
 use sys::napi_value;
+use serde::{Deserialize};
 
 #[napi(object)]
 pub struct Object1 {
@@ -1197,8 +1198,44 @@ fn call_with_done<Value>(env: Env, execute: Function<'static, napi_value, ()>) -
 pub fn with_callback_result(env: Env, execute: Function<'static, napi_value, ()>, callback: ThreadsafeFunction<()>) -> Result<()> {
   let rx = call_with_done::<u32>(env, execute)?;
   napi::bindgen_prelude::spawn(async move {
-    let result = rx.await;
+    let _ = rx.await;
     callback.call(Ok(()), ThreadsafeFunctionCallMode::NonBlocking);
   });
+  Ok(())
+}
+
+#[derive(Debug, Default, Deserialize)]
+#[napi(object)]
+pub struct SourceMap {
+  pub file: Option<String>,
+  pub sources: Option<Vec<Option<String>>>,
+  #[serde(rename = "sourceRoot")]
+  pub source_root: Option<String>,
+  #[serde(rename = "sourcesContent")]
+  pub sources_content: Option<Vec<Option<String>>>,
+  pub names: Option<Vec<Option<String>>>,
+  pub mappings: String,
+  #[serde(rename = "debugId")]
+  pub debug_id: Option<String>,
+  #[serde(rename = "ignoreList")]
+  pub ignore_list: Option<Vec<u32>>,
+}
+
+#[napi]
+pub fn send_source_map_by_string(json: String) -> Result<()> {
+  let mut slice = json.as_bytes().to_vec();
+  let _map: SourceMap = simd_json::serde::from_slice(&mut slice).unwrap();
+  Ok(())
+}
+
+#[napi]
+pub fn send_source_map_by_buffer(buffer: BufferSlice) -> Result<()> {
+  let mut slice = buffer.to_vec();
+  let _map: SourceMap = simd_json::serde::from_slice(&mut slice).unwrap();
+  Ok(())
+}
+
+#[napi]
+pub fn send_source_map_by_object(_object: SourceMap) -> Result<()> {
   Ok(())
 }
