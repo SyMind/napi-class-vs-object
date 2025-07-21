@@ -254,6 +254,33 @@ pub fn create_object10() -> Object10 {
 }
 
 #[napi]
+pub fn create_object1_json() -> String {
+  r#"
+  {
+    "f1": "foo"
+}
+  "#.to_string()
+}
+
+#[napi]
+pub fn create_object10_json() -> String {
+  r#"
+  {
+    "f1": "foo",
+    "f2": "foo",
+    "f3": "foo",
+    "f4": "foo",
+    "f5": "foo",
+    "f6": "foo",
+    "f7": "foo",
+    "f8": "foo",
+    "f9": "foo",
+    "f10": "foo"
+}
+  "#.to_string()
+}
+
+#[napi]
 pub fn set_object10(_val: Object10) {
 }
 

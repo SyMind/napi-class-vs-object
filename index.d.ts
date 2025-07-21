@@ -97,6 +97,8 @@ export interface Object10 {
   f10: string
 }
 export declare function createObject10(): Object10
+export declare function createObject1Json(): string
+export declare function createObject10Json(): string
 export declare function setObject10(val: Object10): void
 export declare function createClass1(): Class1
 export declare function setClass1(val: Class1): void
@@ -130,7 +132,7 @@ export interface SourceMap {
   debugId?: string
   ignoreList?: Array<number>
 }
-export declare function sendSourceMapByJson(json: string): void
+export declare function sendSourceMapByString(json: string): void
 export declare function sendSourceMapByBuffer(buffer: Buffer): void
 export declare function sendSourceMapByObject(object: SourceMap): void
 export declare class Class1 {
